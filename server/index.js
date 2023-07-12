@@ -11,6 +11,16 @@ app.use(express.json());
 var serverToken = "1ed05fab-983b-4cca-a3fb-01b7a4414f71";
 var client = new postmark.ServerClient(serverToken);
 
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"),
+  function (err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  }
+);
+})
+
 app.post('/anfragen', async(req, res) =>{
     try {
       const {name, vorname, strasse, plz, tel_nummer, email, n_zimmer, n_fenster, n_toiletten, n_jahre, q_meter, balkon,garage, garantie, bemerkung, datum, erreichbarkeit} = req.body;
@@ -50,5 +60,5 @@ app.post('/anfragen', async(req, res) =>{
 //
 //                 const newAnfrage = await pool.query(insert);
 
-
-app.listen(4000);
+const PORT = process.env.PORT || 4000;
+app.listen(PORT);
