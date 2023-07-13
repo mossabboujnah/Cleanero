@@ -1,25 +1,14 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const pool = require('./db');
+// const pool = require('./db');
 const postmark = require("postmark");
-
 
 app.use(cors());
 app.use(express.json());
 
 var serverToken = "1ed05fab-983b-4cca-a3fb-01b7a4414f71";
 var client = new postmark.ServerClient(serverToken);
-
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"),
-  function (err) {
-    if (err) {
-      res.status(500).send(err);
-    }
-  }
-);
-})
 
 app.post('/anfragen', async(req, res) =>{
     try {

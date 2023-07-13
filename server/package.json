@@ -4,6 +4,7 @@
   "description": "Backend-API",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js"
   },
   "author": "Mossab Boujnah",
   "license": "ISC",
