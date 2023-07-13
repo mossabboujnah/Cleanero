@@ -1,7 +1,11 @@
 {
   "name": "cleanero-website",
   "version": "1.0.0",
-  "description": "",
+  "engine": {
+    "node": "18.16.0",
+    "npm": "9.5.1"
+  }
+  ,"description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
