@@ -1,0 +1,8 @@
+colors:
+background: linear-gradient(#36D1DC, #5B86E5);
+Button's: #1E75DD
+
+-----------Font-------------------
+
+- Family: [Hanken Grotesk](https://fonts.google.com/specimen/Hanken+Grotesk)
+- Weights: 500, 700, 800

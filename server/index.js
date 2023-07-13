@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 // const pool = require('./db');
 const postmark = require("postmark");
+const path = require('path');
 
 app.use(cors());
 app.use(express.json());
@@ -48,6 +49,8 @@ app.post('/anfragen', async(req, res) =>{
 //                 ${balkon ? true : false}, ${garage ? true : false}, ${garantie ? true : false}, '${bemerkung}', '${datum}', '${erreichbarkeit}');`;
 //
 //                 const newAnfrage = await pool.query(insert);
+
+app.use(express.static("build"));
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT);
