@@ -11,6 +11,7 @@ app.use(express.json());
 var serverToken = "1ed05fab-983b-4cca-a3fb-01b7a4414f71";
 var client = new postmark.ServerClient(serverToken);
 
+app.options('/anfragen', cors())
 app.post('/anfragen', async(req, res) =>{
     try {
       const {name, vorname, strasse, plz, tel_nummer, email, n_zimmer, n_fenster, n_toiletten, n_jahre, q_meter, balkon,garage, garantie, bemerkung, datum, erreichbarkeit} = req.body;
@@ -34,7 +35,8 @@ app.post('/anfragen', async(req, res) =>{
                                    Abgabega.  =   ${garantie ? 'Ja' : 'Nein'}
                                    Bemerkung  =   ${bemerkung}
                                    Datum      =   ${datum}
-                                   Erreichbar =   ${erreichbarkeit}`});
+                                   Erreichbar =   ${erreichbarkeit}`,
+                                   "MessageStream": "outbound"});
 
              res.status(200).send("");
     } catch (e) {
