@@ -48,13 +48,6 @@ button{
  padding-left: 0;
 }
 
-.hero{
-  background-image: url("images/hero_nobg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 80vh;
-}
-
 .hero-text{
   padding: 0 !important;
 }
@@ -222,9 +215,13 @@ button{
 
 
 @media (max-width: 625px){
-  .hero{
-    background-image: url("images/hero_mobile_nobg.png");
+
+  .hero-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
   }
+  
 
   #navbarTogglerDemo02 ul:nth-child(1){
    gap: 0 !important;
